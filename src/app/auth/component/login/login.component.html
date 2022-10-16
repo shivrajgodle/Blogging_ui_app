@@ -1,1 +1,66 @@
-<p>login works!</p>
+<p-card class="container">
+  <div style="text-align: center; color: brown">
+    <h2>Login</h2>
+  </div>
+
+  <form
+    [formGroup]="login"
+    style="border-radius: 1px solid black"
+    autocomplete="off"
+  >
+    <p>
+      <span class="p-float-label p-fluid">
+        <input
+          type="text"
+          pInputText
+          id="username"
+          formControlName="username"
+        />
+        <label for="username">username</label>
+        <small
+          *ngIf="
+            !login.get('username')?.valid && login.get('username')?.touched
+          "
+        >
+          <span style="color: red"> please enter valid username... </span>
+        </small>
+      </span>
+    </p>
+
+    <p>
+      <span class="p-float-label p-fluid">
+        <input
+          type="password"
+          pInputText
+          id="password"
+          formControlName="password"
+        />
+        <label for="username">password</label>
+        <small
+          *ngIf="
+            !login.get('password')?.valid && login.get('password')?.touched
+          "
+        >
+          <span style="color: red"> please enter valid password... </span>
+        </small>
+      </span>
+    </p>
+  </form>
+
+  <div class="p-fluid" style="text-align: start">
+    <button
+      [disabled]="!login.valid"
+      pButton
+      label="login"
+      (click)="onLogin()"
+    ></button>
+  </div>
+  <br />
+  <div class="p-fluid" style="text-align: end">
+    <button pButton label="Create Account" (click)="onCreate()"></button>
+  </div>
+</p-card>
+
+<mat-progress-bar *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+
+<router-outlet></router-outlet>

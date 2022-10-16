@@ -3,8 +3,21 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { SharedmodulesModule } from '../sharedmodules/sharedmodules.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
+
+
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: RegisterComponent
+  }
+]
 
 
 @NgModule({
@@ -15,12 +28,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedmodulesModule,
-    RouterModule.forChild([
-      {
-        path:"",
-        component:LoginComponent
-      }
-    ])
-  ]
+    RouterModule.forChild(routes)
+  ],
+  exports:[RouterModule]
 })
 export class AuthModule { }
