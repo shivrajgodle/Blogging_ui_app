@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -10,9 +12,18 @@ export class HomeComponent implements OnInit {
 
   items!: MenuItem[];
 
-  constructor() { }
+  data!: string;
+
+  constructor(private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
+
+    //console.log(JSON.parse(this.cookieService.get('customtoken')).user);
+    
+   this.data =  JSON.parse(this.cookieService.get("customtoken")).user.name;
+
+   console.log("asasas",this.data);
+   
 
     
     this.items = [
@@ -21,17 +32,19 @@ export class HomeComponent implements OnInit {
      icon:'pi pi-home'
  },
  {
-   label:'login',
-   icon:'pi pi-sign-in',
-   routerLink:'/auth/login'
+   label:'Create new Post',
+   icon:'pi pi-telegram',
+   routerLink:'/blog/post',
  },
- {
-   label:'register',
-   icon:'pi pi-user-plus',
-   routerLink:'/auth/signup'
- }
+ 
 ];
 
+
+  }
+
+  logout(){
+    this.cookieService.deleteAll();
+    this.router.navigate(['/'])
 
   }
 

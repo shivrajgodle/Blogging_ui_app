@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'primeng/toast';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {DropdownModule} from 'primeng/dropdown';
+
+import {EditorModule} from 'primeng/editor';
 
 
 @NgModule({
@@ -28,8 +31,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HttpClientModule,
     ToastModule,
     MatSnackBarModule,
-    MatProgressBarModule
-    
+    MatProgressBarModule,
+    EditorModule,
+    DropdownModule
     
   ],
   exports:[
@@ -43,7 +47,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HttpClientModule,
     ToastModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    EditorModule,
+    DropdownModule
   ]
 })
 export class SharedmodulesModule { }

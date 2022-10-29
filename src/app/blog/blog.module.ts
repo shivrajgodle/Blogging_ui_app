@@ -3,19 +3,25 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './component/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedmodulesModule } from '../sharedmodules/sharedmodules.module';
+import { PostComponent } from './component/post/post.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
   },
+  {
+    path:'post',
+    component:PostComponent
+  }
   
 ]
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,25 @@
+
+.form{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: rgb(116, 5, 219);
+    
+}
+
+
+
+.btn{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+

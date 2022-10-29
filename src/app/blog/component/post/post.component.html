@@ -1,0 +1,64 @@
+<p-card class="container">
+  <div style="color: rgb(25, 190, 190)">
+    <h2>Generate your Thoughts and publish here...</h2>
+  </div>
+
+  <!-- <div *ngFor="let item of categories">
+    <h3>{{ item.categoryId }}</h3>
+    <h3>{{ item.categoryTitle }}</h3>
+    <h3>{{ item.categoryDescription }}</h3>
+  </div> -->
+
+  <form [formGroup]="blogpost">
+    <div class="p-fluid grid">
+      <div class="field col-12 md:col-6">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="inputtext"
+            pInputText
+            id="title"
+            formControlName="title"
+          />
+          <label for="inputtext">Post Title</label>
+        </span>
+      </div>
+      <br />
+
+      <div class="field col-12 md:col-6">
+        <span class="p-float-label">
+          <p-editor
+            [style]="{ height: '320px' }"
+            formControlName="content"
+          ></p-editor>
+          <label for="inputtext">Post Content</label>
+        </span>
+      </div>
+      <br />
+      <div class="field col-12 md:col-6">
+        <p-dropdown
+          [options]="categories"
+          formControlName="category"
+          placeholder="Select a category"
+          optionLabel="categoryTitle"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+    </div>
+    <div class="btn">
+      <p-button
+        label="Create Post"
+        icon="pi pi-check"
+        (onClick)="createPost()"
+      ></p-button>
+      &nbsp;
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Clear"
+        class="p-button-secondary"
+      ></button>
+    </div>
+  </form>
+</p-card>

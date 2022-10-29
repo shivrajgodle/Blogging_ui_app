@@ -8,7 +8,9 @@ export const environment = {
 
 
   registerUserUrl:"/api/v1/auth/register",
-  loginUrl:"/api/v1/auth/login" 
+  loginUrl:"/api/v1/auth/login",
+  categoryUrl:"/api/categories/" ,
+  blogUrl:"/api/user/{userId}/category/{categoryId}/posts"
 };
 
 /*

@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
 
   private authenticate(userName:string , password:string){
     this.loader = true;
-    let authresponce : AuthResponce
-    this.loginService.authenticated(userName,password).subscribe((responce:AuthResponce)=>{
-      authresponce = responce
+    let authresponce : any
+    this.loginService.authenticated(userName,password).subscribe((responce:any)=>{
+      authresponce = responce     
+      
     },
     (error)=>{
       debugger;
@@ -49,7 +50,8 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
         this.loader = false;
         if(authresponce){
-          this.cookieService.set('customtoken',authresponce.token,1,'/');
+          this.cookieService.set('customtoken',JSON.stringify(authresponce),1,'/');
+          
           this._snackBar.open("Authenticated", "Success", { duration: 2000, panelClass: ["success"], });
           this.router.navigate(['/blog/home']);
         }

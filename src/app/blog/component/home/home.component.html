@@ -1,5 +1,7 @@
 <p-menubar [model]="items">
-  <div></div>
+  <button pButton label="Logout" (click)="logout()"></button>
 </p-menubar>
 
-<p>home works!</p>
+<div class="title">
+  <h3>Welcome {{ data | uppercase }}</h3>
+</div>
